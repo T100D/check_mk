@@ -1,4 +1,5 @@
 # check_mk
 Files created for monitoring with check_mk
 
-  -  login.bat  -  check for windows hosts to see if anyone is logged in
+  - login.bat  -  Check for windows hosts to see if anyone is logged in  
+  - fileage.ps1 - Check the age of a (log)file. Problem is that MS does not regulary updates the timestamp  
