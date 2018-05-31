@@ -1,4 +1,3 @@
-'''
 @echo off
 set command="netstat -an | grep <ip-addres> | wc -l"
 for /f "delims=" %%c in ('%command%') do (
@@ -14,4 +13,3 @@ set command="netstat -an | grep <ip-addres> | wc -l"
 for /f "delims=" %%c in ('%command%') do (
 echo P TCP_Connecties_Server Count=%%c;50
 )
-'''
