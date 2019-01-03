@@ -6,3 +6,4 @@ Files created for monitoring with check_mk
   - netstat-collector.bat - (windows) - Collects TCP statistics, requires GOW to work  
   - GetMirroringStatus.ps1 - (windows) - Locak check - Monitor Mirroring Status on SQL servers.
   - cleansimple.sh - Cleanup script for docuwiki
+  - netstat_an.bat - For windows netstat check on sinlge item (RDP)
