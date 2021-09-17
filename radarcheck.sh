@@ -1,6 +1,18 @@
 #!/bin/bash
+#
+# Created by Arie
+#
+# To monitori radar status remotely
+#
+# 01-01-2016 created for monitoring radar sensor info
+#
+# 12-09-2021 V1.1 adjested for MC3.5 OPC command
+# 16-09-2021 Adjusted for stopped applciation (timout added)
+#
+# In case of a new non serial connected sensor remove antennestatus & transmitter status
+#
 
-/HITT/build/htp/ve4/opc localhost:htp_opc1 -c vp_status > /tmp/vp_status
+timeout 5s /HITT/build/htp/ve4/opc localhost:htp_opc1 -c vp_status > /tmp/vp_status
 
 antennestatus=$(cat /tmp/vp_status | grep antenna | grep on | wc --lines)
         if [ $antennestatus -eq 1 ] ; then
