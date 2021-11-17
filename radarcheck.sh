@@ -49,4 +49,4 @@ acp=$(cat /tmp/vp_status | grep acp_present | grep yes | wc --lines)
         echo "2 Radar_ACP_Present status=$acp NOK"
         fi
 ascpcount=$(cat /tmp/vp_status  | grep  scan_acp_count | awk 'END{print $NF}')
-        echo "P Radar_ACP_Count count=$ascpcount"
+        echo "P Radar_ACP_Count Count=$ascpcount;4097"
