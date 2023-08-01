@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Created by AHE
+#
+# To get te hardware serial number as a local check for linux hosts
+#
+# 01-08-2023 created 
+#
+# In case of a new non serial connected sensor remove antennestatus & transmitter status
+#
+# Retreive the serialnumber
+serialnumber=$(dmidecode -s system-serial-number)
+#:w
+# give the serianumber to check_mk
+echo "<<<local>>>"
+echo "0 HW_Serialnumber - Hardware Serial Number=$serialnumber"
