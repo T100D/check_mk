@@ -10,7 +10,7 @@
 #
 # Retreive the serialnumber
 serialnumber=$(dmidecode -s system-serial-number)
-#:w
+#
 # give the serianumber to check_mk
 echo "<<<local>>>"
 echo "0 HW_Serialnumber - Hardware Serial Number=$serialnumber"
