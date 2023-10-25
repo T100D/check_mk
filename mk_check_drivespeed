@@ -5,9 +5,9 @@
 # Door Arie van den Heuvel
 # Datum 18-09-2023
 #
-# Uitvoren van de test en afronden naar een heel getal
+# Uitvoeren van de test en afronden naar een heel getal
 #
-speed=$(hdparm -t /dev/sda | grep disk | awk '{ print $11 }'| numfmt --from=iec --to=iec --format=%0f)
+speed=$(hdparm -t /dev/sda | grep disk | awk '{ print $11 }')
 #
 # Rapportage als local check naar check_mk
 #
