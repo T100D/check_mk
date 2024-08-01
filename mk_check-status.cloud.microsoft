@@ -3,6 +3,8 @@
 # Check to create rusults from the check check-status.cloud.microsoft.sh
 # this check depends on check-status.cloud.microsoft.sh that runs as a cronjob
 #
+# created bij AHE 01-08-2024
+#
 counter=$(grep -oh ">Available<" /tmp/file.html | wc -l)
 #
 #echo $counter
