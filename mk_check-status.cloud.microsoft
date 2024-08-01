@@ -11,17 +11,17 @@ counter=$(grep -oh ">Available<" /tmp/file.html | wc -l)
 echo "<<<local>>>"
 #
   if [[ $counter -eq 3 ]] ; then
-    echo "0 Status.Cloud.Microsoft - All services Available at https://status.cloud.microsoft/"
+     echo "0 Status.Cloud.Microsoft - All services are available at Status.Cloud.Microsoft https://status.cloud.microsoft/"
   else
     if [[ $counter -eq 2 ]] ; then
-      echo "1 Status.Cloud.Microsoft - One service Unavaileble at https://status.cloud.microsoft/"
+       echo "1 Status.Cloud.Microsoft - One service is unavailable at Status.Cloud.Microsoft https://status.cloud.microsoft/"
     else
       if [[ $counter -eq 1 ]] ; then
-        echo "2 Status.Cloud.Microsoft - Two services Unavaileble at https://status.cloud.microsoft/"
+         echo "2 Status.Cloud.Microsoft - Two services are unavailable at Status.Cloud.Microsoft https://status.cloud.microsoft/"
       else
         if [[ $counter -eq 0 ]] ; then
-          echo "2 Status.Cloud.Microsoft - All services Unavaileble at https://status.cloud.microsoft/"
+           echo "2 Status.Cloud.Microsoft - All services are unavailable at Status.Cloud.Microsoft https://status.cloud.microsoft/"
         fi
-       fi
       fi
-     fi
+    fi
+  fi
