@@ -7,3 +7,4 @@ Files created for monitoring with check_mk
   - GetMirroringStatus.ps1 - (windows) - Locak check - Monitor Mirroring Status on SQL servers.
   - cleansimple.sh - Cleanup script for docuwiki
   - netstat_an.bat - For windows netstat check on sinlge item (RDP)
+  - mk_logwatch_py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3
