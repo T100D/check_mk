@@ -3,6 +3,7 @@
 # Created by AHE
 #
 # To get te hardware serial number as a local check for linux hosts
+# In VMware one will tereive the vmware serial number
 #
 # 01-08-2023 created 
 #
