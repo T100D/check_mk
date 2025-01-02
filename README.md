@@ -8,3 +8,5 @@ Files created for monitoring with check_mk
   - cleansimple.sh - Cleanup script for docuwiki
   - netstat_an.bat - For windows netstat check on sinlge item (RDP)
   - mk_logwatch.py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3
+  - check-status.cloud.microsoft.sh - Script to read the contents of the webpage and store it locally
+  - mk_check-status.cloud.microsoft - Checht to read the contents of the above file and present it locally
