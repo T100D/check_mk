@@ -16,37 +16,44 @@
 
 
 timeout 5s /opt/vtmis/HTP/bin/x86_64-linux-gnu/ve4/opc localhost:htp_opc1 -c vp_status > /tmp/vp_status
-antennestatus=$(awk '/antenna/ && /on/' /tmp/vp_status | wc -l)
+antennestatus=$(grep -cm1 'antenna.*on' /tmp/vp_status)
         if [ $antennestatus -eq 1 ] ; then
         echo "0 Radar_Antenne_Status status=$antennestatus OK"
         else
         echo "2 Radar_Antenne_Status status=$antennestatus NOK"
         fi
 
-transmitterstatus=$(awk '/transmitter/ && /on/' /tmp/vp_status | wc -l)
+transmitterstatus=$(grep -cm1 'transmitter.*on' /tmp/vp_status)
         if [ $transmitterstatus -eq 1 ] ; then
         echo "0 Radar_Transmitter_Status status=$transmitterstatus OK"
         else
         echo "2 Radar_Transmitter_Status status=$transmitterstatus NOK"
         fi
 
-videoactivity=$(awk '/video_activity/ && /nok/' /tmp/vp_status | wc -l)
+videoactivity=$(grep -cm1 '/video_activity.*nok' /tmp/vp_status)
         if [ $videoactivity -eq 1 ] ; then
         echo "2 Radar_Video_Activity status=0 NOK"
         else
         echo "0 Radar_Video_Activity status=1 OK"
         fi
 
-northpulse=$(awk '/np_present/ && /yes/' /tmp/vp_status | wc -l)
+northpulse=$(grep -cm1 'np_present.*yes' /tmp/vp_status)
         if [ $northpulse -eq 1 ] ; then
         echo "0 Radar_North_Pulse status=$northpulse OK"
         else
         echo "2 Radar_North_Pulse status=$northpulse NOK"
         fi
 
-acp=$(awk '/acp_present/ && /yes/' /tmp/vp_status | wc -l)
+acp=$(grep -cm1 'acp_present.*yes' /tmp/vp_status)
         if [ $acp -eq 1 ] ; then
         echo "0 Radar_ACP_Present status=$acp OK"
         else
         echo "2 Radar_ACP_Present status=$acp NOK"
+        fi
+
+sync=$(grep -cm1 'sync_present.*yes' /tmp/vp_status)
+        if [ $acp -eq 1 ] ; then
+        echo "0 Radar_SYNC_Present status=$acp OK"
+        else
+        echo "2 Radar_SYNC_Present status=$acp NOK"
         fi
