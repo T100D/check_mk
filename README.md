@@ -10,3 +10,4 @@ Files created for monitoring with check_mk
   - mk_logwatch.py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3
   - check-status.cloud.microsoft.sh - Script to read the contents of the webpage and store it locally
   - mk_check-status.cloud.microsoft - Checht to read the contents of the above file and present it locally
+  - Get-MSSQL.ps1 from: https://github.com/Fishy78/checkmk-mssql/blob/main/Get-MSSQL.ps1
