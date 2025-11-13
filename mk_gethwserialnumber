@@ -6,8 +6,7 @@
 # In VMware one will tereive the vmware serial number
 #
 # 01-08-2023 created 
-#
-# In case of a new non serial connected sensor remove antennestatus & transmitter status
+#
 #
 # Retreive the serialnumber
 serialnumber=$(dmidecode -s system-serial-number)
