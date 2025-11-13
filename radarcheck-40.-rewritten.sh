@@ -9,7 +9,7 @@
 # 12-09-2021 V1.1 adjested for MC3.5 OPC command
 # 16-09-2021 Adjusted for stopped applciation (timout added)
 # 25-02-2024 aangepast voor MC 4.x software
-# 06-06-2025 Rewritten with ihelp of open-hands to be faster
+# 06-06-2025 Rewritten with help of open-hands to be faster
 #
 # In case of a new non serial connected sensor remove antennestatus & transmitter status
 #
