@@ -1,17 +1,21 @@
 #!/bin/bash
 #
-# local check to monitor deleted sections in a memorymap by pmap
-# to see if there is a memoryleak going on with a application
+# Description: This script monitors the memory usage of a specified process
+# using pmap and reports the number of mapped and deleted memory sections.
+# It's designed to help detect potential memory leaks.
 #
-# Arie van den Heuve
-# 14-11-2025
+# By: Arie van den Heuvel
+# First setup: 14-11-2025
+# Improvements: 22-11-2025
+#
+# Getting the procesid of the aplication
+pid=$(pidof /opt/vtmis/ARAMIS/bin/x86_64-linux-gnu/aramis)
 #
 # Collecting the total number of mapped items
+total=$(pmap -x $pid | wc -l)
 #
-total=$(mypid=$(pidof /opt/vtmis/ARAMIS/bin/x86_64-linux-gnu/aramis) ; pmap -x $mypid | wc -l)
 # Collectin the total of deleted items
-#
-deleted=$(mypid=$(pidof /opt/vtmis/ARAMIS/bin/x86_64-linux-gnu/aramis) ; pmap -x $mypid | grep deleted | wc -l)
+deleted=$(pmap -x $pid | grep deleted | wc -l)
 #
 # Reporting the items to check_mk
 echo "<<<local>>>"
