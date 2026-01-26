@@ -5,7 +5,7 @@
 # Date 26-01-2026
 #
 # Get the build number from eval aramis and put the number in a file
-echo 'QUIT' | nc -w 1  127.0.0.1 51555 > /tmp/aramis.txt
+echo 'QUIT' | nc -4 -w 1  127.0.0.1 51555 > /tmp/aramis.txt
 #
 # Get the build number
 build=$(cat /tmp/aramis.txt | grep build)
