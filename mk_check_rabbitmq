@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# Created by Arie & Antophic
+# Date Created 09-04-2026
+#
+# Haalt het totaal aantal queued messages op via de RabbitMQ Management API
+# Geeft de belangrijkste waardern terug en presenteerd deze op de localhost
+# pas de countwaarden voor WARN/CRIT naar eigen believen aan
+#
+
+# Configuratie
+RABBITMQ_HOST="put-hostname-or-IP-here"
+RABBITMQ_USER="username"
+RABBITMQ_PASS="password"
+
+# API aanroep
+RESPONSE=$(curl --silent \
+  --user "${RABBITMQ_USER}:${RABBITMQ_PASS}" \
+  "https://${RABBITMQ_HOST}/api/overview")
+
+# Controleer of curl succesvol was
+if [ $? -ne 0 ]; then
+  echo "FOUT: Kan geen verbinding maken met RabbitMQ op ${RABBITMQ_HOST}:${RABBITMQ_PORT}" >&2
+  exit 1
+fi
+
+# Haal de waarde op uit queue_totals.messages via jq
+TOTAL_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages // 0')
+READY_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages_ready // 0')
+UNACKNOWLEDGED_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages_unacknowledged // 0')
+PUBLISH_RATE=$(echo "${RESPONSE}" | jq '.message_stats.publish_details.rate // 0')
+PUBLISH_CONFIRM=$(echo "${RESPONSE}" | jq '.message_stats.confirm_details.rate // 0')
+DELIVER_RATE=$(echo "${RESPONSE}" | jq '.message_stats.deliver_details.rate // 0')
+CONSUMER_ACK=$(echo "${RESPONSE}" | jq '.message_stats.ack_details.rate // 0')
+
+echo "<<<local>>>"
+#
+echo "P RabbitMQ_VTIS_PROD_QUEUES_TOTAL_MESSAGES count=$TOTAL_MESSAGES;250;1000"
+echo "P RabbitMQ_VTIS_PROD_QUEUES_READY_MESSAGES count=$READY_MESSAGES;250;1000"
+echo "P RabbitMQ_VTIS_PROD_QUEUES_UNACKNOWLEDGED_MESSAGES count=$UNACKNOWLEDGED_MESSAGES;250;500"
+echo "P RabbitMQ_VTIS_PROD_STATS_PUBLISH_RATE count=$PUBLISH_RATE;10000"
+echo "P RabbitMQ_VTIS_PROD_STATS_DELIVER_RATE count=$DELIVER_RATE;10000"
+echo "P RabbitMQ_VTIS_PROD_STATS_CONSUMER_ACK_RATE count=$CONSUMER_ACK;10000"
+echo "P RabbitMQ_VTIS_PROD_STATS_PUBLISH_CONFIRM_RATE count=$PUBLISH_CONFIRM;10000"
