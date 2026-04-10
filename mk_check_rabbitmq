@@ -7,6 +7,8 @@
 # Geeft de belangrijkste waardern terug en presenteerd deze op de localhost
 # pas de countwaarden voor WARN/CRIT naar eigen believen aan
 #
+# date 10-04-2026 Optimized output stats in relation to documentation
+#
 
 # Configuratie
 RABBITMQ_HOST="put-hostname-or-IP-here"
@@ -29,16 +31,16 @@ TOTAL_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages // 0')
 READY_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages_ready // 0')
 UNACKNOWLEDGED_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages_unacknowledged // 0')
 PUBLISH_RATE=$(echo "${RESPONSE}" | jq '.message_stats.publish_details.rate // 0')
-PUBLISH_CONFIRM=$(echo "${RESPONSE}" | jq '.message_stats.confirm_details.rate // 0')
-DELIVER_RATE=$(echo "${RESPONSE}" | jq '.message_stats.deliver_details.rate // 0')
-CONSUMER_ACK=$(echo "${RESPONSE}" | jq '.message_stats.ack_details.rate // 0')
+PUBLISH_RECENTLY=$(echo "${RESPONSE}" | jq '.message_stats.publish.rate // 0')
+DELIVER_RATE=$(echo "${RESPONSE}" | jq '.message_stats.deliver_get.rate // 0')
+DELIVER_RECENTLY=$(echo "${RESPONSE}" | jq '.message_stats.deliver_get_details.rate // 0')
 
 echo "<<<local>>>"
 #
-echo "P RabbitMQ_VTIS_PROD_QUEUES_TOTAL_MESSAGES count=$TOTAL_MESSAGES;250;1000"
-echo "P RabbitMQ_VTIS_PROD_QUEUES_READY_MESSAGES count=$READY_MESSAGES;250;1000"
+echo "P RabbitMQ_VTIS_PROD_QUEUES_TOTAL_MESSAGES count=$TOTAL_MESSAGES;100;1000"
+echo "P RabbitMQ_VTIS_PROD_QUEUES_READY_MESSAGES count=$READY_MESSAGES;500;1000"
 echo "P RabbitMQ_VTIS_PROD_QUEUES_UNACKNOWLEDGED_MESSAGES count=$UNACKNOWLEDGED_MESSAGES;250;500"
-echo "P RabbitMQ_VTIS_PROD_STATS_PUBLISH_RATE count=$PUBLISH_RATE;10000"
-echo "P RabbitMQ_VTIS_PROD_STATS_DELIVER_RATE count=$DELIVER_RATE;10000"
-echo "P RabbitMQ_VTIS_PROD_STATS_CONSUMER_ACK_RATE count=$CONSUMER_ACK;10000"
-echo "P RabbitMQ_VTIS_PROD_STATS_PUBLISH_CONFIRM_RATE count=$PUBLISH_CONFIRM;10000"
+echo "P RabbitMQ_VTIS_PROD_STATS_MESSAGE_PUBLISHED_RECENTLY count=$PUBLISH_RECENTLY;10000"
+echo "P RabbitMQ_VTIS_PROD_STATS_MESSAGE_PUBLISH_RATE count=$PUBLISH_RATE;10000"
+echo "P RabbitMQ_VTIS_PROD_STATS_MESSAGE_DELIVER_RATE count=$DELIVER_RATE;10000"
+echo "P RabbitMQ_VTIS_PROD_STATS_MESSAGE_DELIVERED_RECENTLY count=$DELIVER_RECENTLY;10000"
