@@ -32,7 +32,7 @@ READY_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages_ready // 0')
 UNACKNOWLEDGED_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages_unacknowledged // 0')
 PUBLISH_RATE=$(echo "${RESPONSE}" | jq '.message_stats.publish_details.rate // 0')
 PUBLISH_RECENTLY=$(echo "${RESPONSE}" | jq '.message_stats.publish // 0')
-DELIVER_RATE=$(echo "${RESPONSE}" | jq '.message_stats.deliver_get.rate // 0')
+DELIVER_RATE=$(echo "${RESPONSE}" | jq '.message_stats.deliver_get_details.rate // 0')
 DELIVER_RECENTLY=$(echo "${RESPONSE}" | jq '.message_stats.deliver_get // 0')
 
 echo "<<<local>>>"
