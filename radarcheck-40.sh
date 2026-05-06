@@ -12,7 +12,7 @@
 # In case of a new non serial connected sensor remove antennestatus & transmitter status
 #
 
-timeout 5s /opt/vtmis/HTP/bin/x86_64-linux-gnu/ve4/opc localhost:htp_opc1 -c vp_status > /tmp/vp_status
+timeout 5s /opt/vtmis/HTP/bin/x86_64-linux-gnu/ve4/opc localhost:htp_opc1 -c vp_status > | tr -d '\0' /tmp/vp_status
 
 antennestatus=$(grep -cm1 'antenna.*on' /tmp/vp_status)
         if [ $antennestatus -eq 1 ] ; then
