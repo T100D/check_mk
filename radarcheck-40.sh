@@ -50,7 +50,7 @@ acp=$(grep -cm1 'acp_present.*yes' /tmp/vp_status)
         fi
 
 sync=$(grep -cm1 'sync_present.*yes' /tmp/vp_status)
-        if [ $acp -eq 1 ] ; then
+        if [ $sync -eq 1 ] ; then
         echo "0 Radar_SYNC_Present status=$acp OK"
         else
         echo "2 Radar_SYNC_Present status=$acp NOK"
