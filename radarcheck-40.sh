@@ -28,7 +28,7 @@ transmitterstatus=$(grep -cm1 'transmitter.*on' /tmp/vp_status)
         echo "2 Radar_Transmitter_Status status=$transmitterstatus NOK"
         fi
 
-videoactivity=$(grep -cm1 '/video_activity.*nok' /tmp/vp_status)
+videoactivity=$(grep -cm1 'video_activity.*nok' /tmp/vp_status)
         if [ $videoactivity -eq 1 ] ; then
         echo "2 Radar_Video_Activity status=0 NOK"
         else
