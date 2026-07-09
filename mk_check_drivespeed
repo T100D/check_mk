@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# Test om de snelhed van een drive te testen en bij te houden
+# Check tot test the speed of a drive and trigger a faster storage
+# in a vmware setting with HDD/SDD configurations
 #
 # Door Arie van den Heuvel
 # Datum 18-09-2023
