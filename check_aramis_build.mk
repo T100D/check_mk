@@ -1,10 +1,10 @@
 #
 # Created by Arie
-# Script om het aramis buils nummer uit te lezen
+# Script to read the export and states the build number of a programm
 #
 # Date 26-01-2026
 #
-# Get the build number from eval aramis and put the number in a file
+# Get the build number from eval-aramis and put the number in a file
 echo 'QUIT' | nc -4 -w 1  127.0.0.1 51555 > /tmp/aramis.txt
 #
 # Get the build number
