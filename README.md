@@ -10,14 +10,14 @@ Local checks created for monitoring hosts with check_mk
   - GetMirroringStatus.ps1 - (windows) - Local check - Monitor the Mirroring Status on SQL servers.
   - login.bat - (windows) - Check for windows hosts to see if anyone is logged in on a active RDP connection
   - login-v2.bat - (windows) Improoved version of login.bat after checking with ChatGPT
-  - mk_check_drivespeed - Regular test to check the speed of a drive and trigger the fast storage :-)
+  - mk_check_drivespeed - Regular test to check the speed of a drive and trigger fast storage if present :-)
   - mk_check_rabbitmq - local check to monitor RabbitMQ remotely and get Key Statistics
-  - mk_gethwserialnumber - Get the HW serialnumber of a device in linux
-  - mk_getserial.ps1 - Get the HW serial number in Windows
-  - netstat-collector.bat - (windows) - Collects TCP statistics, requires GOW to work  
-  - GetMirroringStatus.ps1 - (windows) - Locak check - Monitor Mirroring Status on SQL servers.
+  - mk_gethwserialnumber - Get the Harware serialnumber of a device in linux
+  - mk_getserial.ps1 - Get the Hardware serial number in Windows
+  - netstat-collector.bat - (windows) - Collects several TCP statistics, requires GOW to work. 
+  - GetMirroringStatus.ps1 - (windows) - Local check - Monitor Mirroring Status on SQL servers.
   - netstat_an.bat - For windows netstat check on sinlge item (RDP)
-  - mk_logwatch.py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3
+  - mk_logwatch.py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3 on newer hosts
   - radarcheck-40.sh - A check specifically for the Tidalis/Saab/HITT Video Processor and gather the radar status of a device
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/T100D/check_mk)
