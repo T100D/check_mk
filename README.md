@@ -20,3 +20,5 @@ Files created for monitoring with check_mk
   - netstat_an.bat - For windows netstat check on sinlge item (RDP)
   - mk_logwatch.py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3
   - radarcheck-40.sh - A check specifically for the Tidalis/Saab/HITT Video Processor and gather the radar status of a device
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/T100D/check_mk)
