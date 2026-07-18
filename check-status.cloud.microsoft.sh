@@ -2,7 +2,8 @@
 #
 # Check to read and locally store the contents of https://status.cloud.microsoft from the shell
 # Dependancy: Install chromium-headless to use this
-# Used on the monitoring host
+# Used on the monitoring host and runned by a crontab every 5 minutes
+#
 # The script "check-status.cloud.microsoft" is used for reporting the status
 #
 # Door AHE 31-07-2024
