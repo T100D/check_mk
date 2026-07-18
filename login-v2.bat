@@ -1,6 +1,6 @@
 @echo off
-REM Local check to check if theire are active users on a system
-REM Improoved version after checking with ChatGPT
+REM Local check to check if there are active users on a system
+REM Improoved version after checking with ChatGPT for newer windows systems
 REM
 REM Count the number of active logins
 for /f "delims=" %%c in ('query session ^| find /C "Active"') do (
