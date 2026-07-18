@@ -1,32 +1,35 @@
 #!/bin/bash
 #
-# Created by Arie & Antophic
-# Date Created 09-04-2026
+# Created by: Arie & Antophic
+# Created date: 09-04-2026
 #
-# Haalt het totaal aantal queued messages op via de RabbitMQ Management API
-# Geeft de belangrijkste waardern terug en presenteerd deze op de localhost
-# pas de countwaarden voor WARN/CRIT naar eigen believen aan
+# Get the results from queues over the RabbitMQ Management API
+# Reports the values back to check_mk
+# Adjust WARN/CRIT values and reporting names to your own likings for clarity
+#
+# Runs on the local monitoring host as a local check
+# Dependancy: jq
 #
 # date 10-04-2026 Optimized output stats in relation to documentation
 #
-
-# Configuratie
+#
+# Configguration
 RABBITMQ_HOST="put-hostname-or-IP-here"
 RABBITMQ_USER="username"
 RABBITMQ_PASS="password"
-
-# API aanroep
+#
+# API call
 RESPONSE=$(curl --silent \
   --user "${RABBITMQ_USER}:${RABBITMQ_PASS}" \
   "https://${RABBITMQ_HOST}/api/overview")
-
-# Controleer of curl succesvol was
+#
+# Check ff curl was succesfull
 if [ $? -ne 0 ]; then
-  echo "FOUT: Kan geen verbinding maken met RabbitMQ op ${RABBITMQ_HOST}:${RABBITMQ_PORT}" >&2
+  echo "FOULT: Cannot connect to RabbitMQ on ${RABBITMQ_HOST}:${RABBITMQ_PORT}" >&2
   exit 1
 fi
-
-# Haal de waarde op uit queue_totals.messages via jq
+#
+# Get the values of queue_totals.messages with jq
 TOTAL_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages // 0')
 READY_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages_ready // 0')
 UNACKNOWLEDGED_MESSAGES=$(echo "${RESPONSE}" | jq '.queue_totals.messages_unacknowledged // 0')
@@ -34,9 +37,9 @@ PUBLISH_RATE=$(echo "${RESPONSE}" | jq '.message_stats.publish_details.rate // 0
 PUBLISH_RECENTLY=$(echo "${RESPONSE}" | jq '.message_stats.publish // 0')
 DELIVER_RATE=$(echo "${RESPONSE}" | jq '.message_stats.deliver_get_details.rate // 0')
 DELIVER_RECENTLY=$(echo "${RESPONSE}" | jq '.message_stats.deliver_get // 0')
-
-echo "<<<local>>>"
 #
+# Report the values to teh monitoring system
+echo "<<<local>>>"
 echo "P RabbitMQ_VTIS_PROD_QUEUES_TOTAL_MESSAGES count=$TOTAL_MESSAGES;100;1000"
 echo "P RabbitMQ_VTIS_PROD_QUEUES_READY_MESSAGES count=$READY_MESSAGES;500;1000"
 echo "P RabbitMQ_VTIS_PROD_QUEUES_UNACKNOWLEDGED_MESSAGES count=$UNACKNOWLEDGED_MESSAGES;250;500"
