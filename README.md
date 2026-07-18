@@ -1,4 +1,5 @@
 # check_mk
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/T100D/check_mk)
 Files created for monitoring with check_mk
 
   - Get-MSSQL.ps1 from: https://github.com/Fishy78/checkmk-mssql/blob/main/Get-MSSQL.ps1
@@ -21,4 +22,4 @@ Files created for monitoring with check_mk
   - mk_logwatch.py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3
   - radarcheck-40.sh - A check specifically for the Tidalis/Saab/HITT Video Processor and gather the radar status of a device
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/T100D/check_mk)
+
