@@ -1,13 +1,14 @@
 #!/bin/bash
 #
 # Created by Arie
-# To monitor radar status remotely
+# To monitor radar sensor status remotely for HITT/Saab/Tidalis MARK3 or MARK4
+# Video Processing cards connected tot the radar system.
 #
 # 01-01-2016 Created for monitoring radar sensor info
 # 12-09-2021 Adjusted for MC3.5 OPC command
 # 16-09-2021 Adjusted for stopped application (timout added)
 # 25-02-2024 Adjusted voor MC 4.x software
-# 06-06-2025 Rewritten with help of open-hands to be faster
+# 06-06-2025 Rewritten with help of open-hands (Gemini API) to be faster
 #
 # In case of a new non serial connected sensor remove antennestatus & transmitter status
 #
