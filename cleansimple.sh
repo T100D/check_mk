@@ -1,6 +1,9 @@
     # #!/bin/sh
     #
-    # cronjob
+    # This is a localized script to cleanup Dokuwiki temporaty files and folders
+    # It shoud be fired weekly from a cronjob
+    #
+    # cronjob exsample:
     # 0 8 1 * * /usr/local/dokuwiki/cleansimple.sh 2>&1 > /dev/null
     #
     # set the path to your DokuWiki installation here
