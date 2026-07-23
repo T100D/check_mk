@@ -1,4 +1,4 @@
-Local checks created for monitoring hosts with check_mk
+Local checks created for monitoring information from Linux and Windows hosts with check_mk
 
   - Get-MSSQL.ps1 from: https://github.com/Fishy78/checkmk-mssql/blob/main/Get-MSSQL.ps1
   - Get-Reboot.ps1 - This script tells if a requierd reboot is pending after a system is beeing updated
