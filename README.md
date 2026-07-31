@@ -19,5 +19,6 @@ Local checks created for monitoring information from Linux and Windows hosts wit
   - netstat_an.bat - For windows netstat check on sinlge item (RDP)
   - mk_logwatch.py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3 on newer hosts
   - radarcheck-40.sh - A check specifically for the Tidalis/Saab/HITT Video Processor and gather the radar status of a device
+  - radarcheck-mivsp-mc40.sh - A check specifically for the Tidalis/Saab/HITT Video Processor in case of the MIVSP radar device
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/T100D/check_mk)
