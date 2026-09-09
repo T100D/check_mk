@@ -20,5 +20,6 @@ Local checks created for monitoring information from Linux and Windows hosts wit
   - mk_logwatch.py3 - Fixed mk_logwatch from check_mk 1.2.8p27 to work under python3 on newer hosts
   - radarcheck-40.sh - A check specifically for the Tidalis/Saab/HITT Video Processor and gather the radar status of a device
   - radarcheck-mivsp-mc40.sh - A check specifically for the Tidalis/Saab/HITT Video Processor in case of the MIVSP radar device
+  - filescount.mk - Script to count and report the number of files in a given directory
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/T100D/check_mk)
